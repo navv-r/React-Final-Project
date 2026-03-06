@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { searchMovies } from "../data/api";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Search = () => {
   const location = useLocation();
@@ -84,11 +84,18 @@ const Search = () => {
               <div key={index} className="movie-card skeleton"></div>
             ))
           : sortedMovies.map((movie) => (
-              <div key={movie.imdbID} className="movie-card">
-                <img src={movie.Poster} alt={movie.Title} />
-                <h3>{movie.Title}</h3>
-                <p>{movie.Year}</p>
-              </div>
+              <Link
+                key={movie.imdbID}
+                to={`/movie/${movie.imdbID}`}
+                state={{ query }}
+                className="movie-link"
+              >
+                <div className="movie-card">
+                  <img src={movie.Poster} alt={movie.Title} />
+                  <h3>{movie.Title}</h3>
+                  <p>{movie.Year}</p>
+                </div>
+              </Link>
             ))}
       </div>
     </div>
