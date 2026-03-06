@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: rgb(25,25,25);
+  background-color: rgb(25, 25, 25);
   font-family: "Poppins", sans-serif;
 }
 
@@ -45,7 +45,6 @@ body {
   align-items: center;
   min-height: calc(100vh - 80px);
   padding-top: 80px;
-
   background: linear-gradient(
     180deg,
     rgb(174, 174, 174) 0%,
@@ -65,7 +64,6 @@ body {
   font-size: 48px;
   font-weight: 600;
   color: white;
-
   margin-bottom: 20px;
 }
 
@@ -73,7 +71,6 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: rgb(220, 220, 220);
-
   margin-bottom: 40px;
   line-height: 1.6;
 }
@@ -82,15 +79,11 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
-
   padding: 14px 32px;
-
   border: none;
   border-radius: 6px;
-
   background-color: white;
   color: rgb(40, 40, 40);
-
   cursor: pointer;
   transition: 0.2s ease;
 }
@@ -105,26 +98,30 @@ body {
 .search-page {
   min-height: calc(100vh - 80px);
   padding: 40px;
-
   background: linear-gradient(
     180deg,
-    rgb(174,174,174) 0%,
-    rgb(80,80,80) 25%,
-    rgb(40,40,40) 60%,
-    rgb(20,20,20) 100%
+    rgb(174, 174, 174) 0%,
+    rgb(80, 80, 80) 25%,
+    rgb(40, 40, 40) 60%,
+    rgb(20, 20, 20) 100%
   );
-
   color: white;
+}
+
+.search-page h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-family: "Poppins", sans-serif;
 }
 
 .search-form input {
   padding: 10px;
   width: 260px;
-
   border-radius: 5px;
   border: none;
-
-  background-color: rgb(240,240,240);
+  background-color: rgb(240, 240, 240);
 }
 
 .search-form select {
@@ -142,13 +139,43 @@ body {
   cursor: pointer;
 }
 
-.search-form button:hover {
-  background-color: #cc0000;
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.sort-dropdown {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+}
+
+.search-center {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
 }
 
 .search-form select {
   padding: 10px;
   border-radius: 5px;
+}
+
+.clear-button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(120, 120, 120);
+  color: white;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background-color: rgb(90, 90, 90);
 }
 
 .movies-grid {
@@ -161,7 +188,7 @@ body {
   text-decoration: none;
   color: white;
 
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 12px;
   border-radius: 8px;
 
