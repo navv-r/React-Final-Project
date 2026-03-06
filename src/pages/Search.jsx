@@ -7,21 +7,21 @@ const Search = () => {
 
   const [query, setQuery] = useState(location.state?.query || "");
   const [movies, setMovies] = useState([]);
-useEffect(() => {
-  if (query) {
-    handleSearch();
-  }
-}, [query, handleSearch]);
-  const [sortOption, setSortOption] = useState("");
-
   const handleSearch = async (e) => {
-  if (e) e.preventDefault()
+    if (e) e.preventDefault();
 
-  if (!query) return
+    if (!query) return;
 
-  const results = await searchMovies(query)
-  setMovies(results)
-};
+    const results = await searchMovies(query);
+    setMovies(results);
+  };
+
+  useEffect(() => {
+    if (query) {
+      handleSearch();
+    }
+  }, [query, handleSearch]);
+  const [sortOption, setSortOption] = useState("");
 
   const clearSearch = () => {
     setQuery("");
