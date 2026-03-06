@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
-}
+/* Navigation Section */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 16px 32px;
+  background-color: rgb(174, 174, 174);
+}
+
+.nav__logo {
+  width: 70px;
+  height: auto;
+  filter: invert(1);
+  transition: 0.2s ease;
+}
+
+.nav__right a {
   color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+.nav__right a:hover {
+  color: #ff0000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav__link {
+  padding: 8px;
+}
+
+/* Home Page Section */
+.home {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding-top: 80px;
+
+  background: linear-gradient(
+    180deg,
+    rgb(174, 174, 174) 0%,
+    rgb(40, 40, 40) 100%
+  );
+
+  text-align: center;
+  padding: 40px;
+}
+
+.home__hero {
+  max-width: 700px;
+}
+
+.home__title {
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  color: white;
+
+  margin-bottom: 20px;
+}
+
+.home__description {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: rgb(220, 220, 220);
+
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.home__button {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+
+  padding: 14px 32px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: white;
+  color: rgb(40, 40, 40);
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.home__button:hover {
+  background-color: #ff0000;
+  color: white;
+  transform: translateY(-2px);
 }
