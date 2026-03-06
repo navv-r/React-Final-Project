@@ -8,7 +8,7 @@ import Search from "./pages/Search";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/React-Final-Project">
       <Nav />
 
       <Routes>
