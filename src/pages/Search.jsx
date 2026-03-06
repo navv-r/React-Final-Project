@@ -12,8 +12,12 @@ const Search = () => {
 
     if (!query) return;
 
+    setLoading(true);
+
     const results = await searchMovies(query);
     setMovies(results);
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -23,6 +27,8 @@ const Search = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
   const [sortOption, setSortOption] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   const clearSearch = () => {
     setQuery("");
@@ -73,20 +79,17 @@ const Search = () => {
       </form>
 
       <div className="movies-grid">
-        {sortedMovies.map((movie) => (
-          <Link
-            key={movie.imdbID}
-            to={`/movie/${movie.imdbID}`}
-            state={{ query }}
-            className="movie-card"
-          >
-            <img src={movie.Poster} alt={movie.Title} />
-
-            <h3>{movie.Title}</h3>
-
-            <p>{movie.Year}</p>
-          </Link>
-        ))}
+        {loading
+          ? [...Array(6)].map((_, index) => (
+              <div key={index} className="movie-card skeleton"></div>
+            ))
+          : sortedMovies.map((movie) => (
+              <div key={movie.imdbID} className="movie-card">
+                <img src={movie.Poster} alt={movie.Title} />
+                <h3>{movie.Title}</h3>
+                <p>{movie.Year}</p>
+              </div>
+            ))}
       </div>
     </div>
   );
