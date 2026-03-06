@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { searchMovies } from "../data/api";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Search = () => {
   const location = useLocation();
