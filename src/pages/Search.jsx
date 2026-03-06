@@ -7,11 +7,11 @@ const Search = () => {
 
   const [query, setQuery] = useState(location.state?.query || "");
   const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    if (query) {
-      handleSearch();
-    }
-  }, []);
+useEffect(() => {
+  if (query) {
+    handleSearch();
+  }
+}, [query, handleSearch]);
   const [sortOption, setSortOption] = useState("");
 
   const handleSearch = async (e) => {
