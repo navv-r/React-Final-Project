@@ -203,3 +203,152 @@ body {
   width: 100%;
   border-radius: 6px;
 }
+
+.movie-page {
+  min-height: calc(100vh - 80px);
+  padding: 40px;
+
+  background: linear-gradient(
+    180deg,
+    rgb(174,174,174) 0%,
+    rgb(50,50,50) 40%,
+    rgb(20,20,20) 100%
+  );
+
+  color: white;
+}
+
+.movie-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+/* Movie Page Section */
+.return-button {
+  display: inline-block;
+  margin-top: 25px;
+
+  padding: 10px 20px;
+
+  background-color: #ff0000;
+  color: white;
+
+  text-decoration: none;
+  border-radius: 6px;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.return-button:hover {
+  background-color: #cc0000;
+}
+
+/* Footer Section */
+
+.footer {
+  background-color: rgb(25,25,25);
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.footer__text {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.footer__credit {
+  color: rgb(180,180,180);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+/* =========================
+   Mobile Responsive Styles
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .nav__right {
+    display: flex;
+    gap: 16px;
+  }
+
+  .nav__right a {
+    font-size: 18px;
+  }
+
+  /* HOME PAGE */
+  .home__title {
+    font-size: 36px;
+  }
+
+  .home__description {
+    font-size: 16px;
+  }
+
+  .home__button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  /* SEARCH BAR AREA */
+  .search-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .search-form input {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .search-form button {
+    width: 150px;
+  }
+
+  .search-form select {
+    width: 200px;
+  }
+
+  /* MOVIE GRID */
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  /* MOVIE DETAILS PAGE */
+  .movie-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .movie-poster {
+    width: 220px;
+  }
+
+  .movie-info {
+    max-width: 90%;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 24px 16px;
+  }
+
+}

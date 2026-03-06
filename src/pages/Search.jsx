@@ -1,23 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { searchMovies } from "../data/api";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Search = () => {
-  const [query, setQuery] = useState("");
+  const location = useLocation();
+
+  const [query, setQuery] = useState(location.state?.query || "");
   const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    if (query) {
+      handleSearch();
+    }
+  }, []);
   const [sortOption, setSortOption] = useState("");
-  const clearSearch = () => {
-  setQuery("");
-  setMovies([]);
-};
 
   const handleSearch = async (e) => {
-    e.preventDefault();
+  if (e) e.preventDefault()
 
-    if (!query.trim()) return;
+  if (!query) return
 
-    const results = await searchMovies(query);
-    setMovies(results);
+  const results = await searchMovies(query)
+  setMovies(results)
+};
+
+  const clearSearch = () => {
+    setQuery("");
+    setMovies([]);
   };
 
   const sortedMovies = [...movies].sort((a, b) => {
@@ -36,46 +44,39 @@ const Search = () => {
       <h1>Search Movies</h1>
 
       <form className="search-form" onSubmit={handleSearch}>
+        <div className="search-center">
+          <input
+            type="text"
+            placeholder="Search for a movie..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
 
-  <div className="search-center">
+          <button type="submit">Search</button>
+          <button type="button" className="clear-button" onClick={clearSearch}>
+            Clear Search
+          </button>
+        </div>
 
-    <input
-      type="text"
-      placeholder="Search for a movie..."
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-    />
-
-    <button type="submit">Search</button>
-    <button
-    type="button"
-    className="clear-button"
-    onClick={clearSearch}
-  >
-    Clear Search
-  </button>
-
-  </div>
-
-  <select
-    className="sort-dropdown"
-    value={sortOption}
-    onChange={(e) => setSortOption(e.target.value)}
-  >
-    <option value="">Sort By</option>
-    <option value="year-desc">Release Date (Newest)</option>
-    <option value="year-asc">Release Date (Oldest)</option>
-    <option value="title-asc">Title (A-Z)</option>
-    <option value="title-desc">Title (Z-A)</option>
-  </select>
-
-</form>
+        <select
+          className="sort-dropdown"
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+        >
+          <option value="">Sort By</option>
+          <option value="year-desc">Release Date (Newest)</option>
+          <option value="year-asc">Release Date (Oldest)</option>
+          <option value="title-asc">Title (A-Z)</option>
+          <option value="title-desc">Title (Z-A)</option>
+        </select>
+      </form>
 
       <div className="movies-grid">
         {sortedMovies.map((movie) => (
           <Link
             key={movie.imdbID}
             to={`/movie/${movie.imdbID}`}
+            state={{ query }}
             className="movie-card"
           >
             <img src={movie.Poster} alt={movie.Title} />
@@ -89,7 +90,5 @@ const Search = () => {
     </div>
   );
 };
-
-
 
 export default Search;

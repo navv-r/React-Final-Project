@@ -1,10 +1,13 @@
-import React from 'react'
-
 const Footer = () => {
   return (
-    <div>
-      
-    </div>
+    <footer className="footer">
+      <p className="footer__text">
+        • Movie Finder • 
+      </p>
+      <p className="footer__credit">
+        © {new Date().getFullYear()} Navendra Ramdhan
+      </p>
+    </footer>
   )
 }
 
