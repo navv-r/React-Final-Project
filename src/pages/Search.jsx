@@ -20,7 +20,8 @@ const Search = () => {
     if (query) {
       handleSearch();
     }
-  }, [query, handleSearch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
   const [sortOption, setSortOption] = useState("");
 
   const clearSearch = () => {
